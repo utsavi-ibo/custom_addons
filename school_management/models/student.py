@@ -8,20 +8,22 @@ class StudentDetails(models.Model):
     _inherit = ['mail.thread']
 
     name = fields.Char(string='Name', required=True, translate=True)
+    email = fields.Char(string='Email')
     age = fields.Integer(string='Age')
     gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female'),
         ('other', 'other'),
     ], default='other')
-    birth_date = fields.Date(string="D.O.B")
-    roll_no = fields.Integer(string='Roll No', tracking=True)
+    birth_date = fields.Datetime(string="D.O.B")
+    roll_no = fields.Integer(string='Roll No', tracking=True, copy=False)
     admission_date = fields.Date(string="Date of Admission")
     mark_sheet_ids = fields.One2many('student.marks', 'name')
     activities_ids = fields.Many2many('student.activities', string="Extracurricular Activities")
     student_class_id = fields.Many2one('student.class', string="Class")
     teacher = fields.Many2one(string="Class Teacher", related="student_class_id.teacher")
     _sql_constraints = [('roll_no_unique', 'unique(roll_no)', 'This roll No already exist')]
+    dob_difference = fields.Integer(string='Difference', default=4)
 
     @api.model
     def default_get(self, vals):
@@ -39,3 +41,7 @@ class StudentDetails(models.Model):
             print("hiiiiii")
             for each in today_birthday:
                 each.message_post(body="Happy Birthday {}".format(each.name), subject="Birthday Wish")
+
+    def copy_details(self):
+        student_copy = self.copy()
+        student_copy.roll_no = self.roll_no + 20

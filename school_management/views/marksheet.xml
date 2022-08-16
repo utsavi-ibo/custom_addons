@@ -35,6 +35,8 @@
                     <button name="reset_marks" type="object" string="Reset" class="btn-primary"
                             confirm="Are you sure you want to reset the marks"/>
                     <button name="final_result" type="object" string="Result" class="btn-primary"/>
+                    <button name="create_record" type="object" string="New Student" class="btn-primary"
+                            confirm="Are you sure you want to create a new record"/>
                     <field name="state" widget="statusbar" options="{'clickable' : '1'}"/>
                 </header>
                 <sheet>

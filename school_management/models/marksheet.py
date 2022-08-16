@@ -32,6 +32,7 @@ class StudentMarks(models.Model):
         self.maths = 0.0
         self.biology = 0.0
         self.english = 0.0
+        self.write({'result': 'Reset to draft'})
 
     def final_result(self):
         if self.final_percentage < 35:
@@ -40,6 +41,17 @@ class StudentMarks(models.Model):
         else:
             self.state = "pass"
             self.result = "Successful"
+
+    def create_record(self):
+        new_student_obj = self.env['student.details']
+        values = {
+            'name': 'abc',
+            'gender': 'female'
+        }
+        new_student_create = new_student_obj.create(values)
+        print(new_student_create)
+
+
 
     @api.onchange("physics", "chemistry", "maths", "biology", "english")
     def total_marks(self):

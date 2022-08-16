@@ -7,6 +7,7 @@
         <field name="model">student.details</field>
         <field name="arch" type="xml">
             <tree>
+
                 <field name="roll_no"/>
                 <field name="name"/>
                 <field name="gender"/>
@@ -24,11 +25,17 @@
 
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="copy_details" type="object" string="Copy" class="btn-primary"
+                            confirm="Are you sure you want to reset the marks"/>
+
+                </header>
                 <sheet>
                     <group>
                         <field name="roll_no"/>
                         <field name="admission_date"/>
                         <field name="name"/>
+                        <field name="email"/>
                         <field name="birth_date" attrs="{'readonly': [('birth_date', '!=', False)]}" force_save="1"/>
                         <field name="gender" attrs="{'required': [('age', '&lt;', 30)]}"/>
                         <field name="age" attrs="{'invisible': [('age', '>=', 30)]}"/>
