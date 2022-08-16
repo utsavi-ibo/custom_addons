@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_details,access.student.details,model_student_details,,1,1,1,1
+access_student_marks,access.student.marks,model_student_marks,,1,1,1,1
+access_student_class,access.student.class,model_student_class,,1,1,1,1
+access_school_teacher,access.school.teacher,model_school_teacher,,1,1,1,1
+access_student_activities,access.student.activities,model_student_activities,,1,1,1,1
+access_teacher_timetable,access.teacher.timetable,model_teacher_timetable,,1,1,1,1
+access_school_timeslot,access.school.timeslot,model_school_timeslot,,1,1,1,1
+
+

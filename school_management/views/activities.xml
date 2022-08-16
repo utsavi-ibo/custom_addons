@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="school_activities_tree" model="ir.ui.view">
+        <field name="name">school.activities.tree</field>
+        <field name="model">student.activities</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="percent"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_activities_form" model="ir.ui.view">
+        <field name="name">school.activities.form</field>
+        <field name="model">student.activities</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="percent"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_activities_action" model="ir.actions.act_window">
+        <field name="name">Extracurricular Activities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">student.activities</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Enter your student details
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Top menu item -->
+    <menuitem id="school_activities_root"
+              name="Extracurricular Activities"
+              parent="school_root"
+              sequence="8"/>
+
+    <menuitem id="school_activities"
+              name="Activities"
+              parent="school_activities_root"
+              action="school_activities_action"
+              sequence="2"/>
+
+
+</odoo>

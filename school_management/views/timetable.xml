@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="teacher_timetable_tree" model="ir.ui.view">
+        <field name="name">teacher.timetable.tree</field>
+        <field name="model">teacher.timetable</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="time_slot"/>
+                <field name="week_day"/>
+                <field name="subject_name"/>
+                <field name="student_class"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="teacher_timetable_form" model="ir.ui.view">
+        <field name="name">teacher.timetable.form</field>
+        <field name="model">teacher.timetable</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="time_slot"/>
+                        <field name="week_day"/>
+                        <field name="subject_name"/>
+                        <field name="student_class"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="teacher_timetable_action" model="ir.actions.act_window">
+        <field name="name">Timetable</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">teacher.timetable</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Enter timetable
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem id="teacher_timetable"
+              name="Timetable"
+              parent="school_teacher_root"
+              action="teacher_timetable_action"
+              sequence="4"/>
+
+
+</odoo>

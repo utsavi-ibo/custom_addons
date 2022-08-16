@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="teacher_details_tree" model="ir.ui.view">
+        <field name="name">teacher.details.tree</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="teacher_details_form" model="ir.ui.view">
+        <field name="name">teacher.details.form</field>
+        <field name="model">school.teacher</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="gender"/>
+                        <field name="age"/>
+                        <field name="time_table"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="teacher_action" model="ir.actions.act_window">
+        <field name="name">Teacher</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.teacher</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Enter teacher details
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Top menu item -->
+    <menuitem id="school_teacher_root"
+              name="Teacher"
+              parent="school_root"
+              sequence="4"/>
+
+    <menuitem id="school_teacher"
+              name="Teacher"
+              parent="school_teacher_root"
+              action="teacher_action"
+              sequence="2"/>
+
+
+</odoo>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="student_marks_tree" model="ir.ui.view">
+        <field name="name">student.marks.tree</field>
+        <field name="model">student.marks</field>
+        <field name="arch" type="xml">
+            <tree editable = "bottom">
+                <field name="name"/>
+                <field name="roll_no"/>
+                <field name="student_class"/>
+                <field name="semester"/>
+                <field name="physics"/>
+                <field name="chemistry"/>
+                <field name="maths"/>
+                <field name="biology"/>
+                <field name="english"/>
+                <field name="total"/>
+                <field name="grand_total"/>
+                <field name="final_percentage"/>
+                <field name="state"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_marks_form" model="ir.ui.view">
+        <field name="name">student.marks.form</field>
+        <field name="model">student.marks</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="reset_marks" type="object" string="Reset" class="btn-primary"
+                            confirm="Are you sure you want to reset the marks"/>
+                    <button name="final_result" type="object" string="Result" class="btn-primary"/>
+                    <field name="state" widget="statusbar" options="{'clickable' : '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="roll_no"/>
+                        <field name="student_class"/>
+                        <field name="semester"/>
+                        <field name="physics"/>
+                        <field name="chemistry"/>
+                        <field name="maths"/>
+                        <field name="biology"/>
+                        <field name="english"/>
+                        <field name="total"/>
+                        <field name="grand_total"/>
+                        <field name="final_percentage"/>
+                        <field name="result" readonly="1"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="student_marks_action" model="ir.actions.act_window">
+        <field name="name">Marks</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">student.marks</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="student_marks_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Enter student marks
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem id="student_marksheet"
+              name="Marksheet"
+              parent="school_student_root"
+              action="student_marks_action"
+              sequence="4"/>
+
+
+</odoo>
