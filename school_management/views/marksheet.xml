@@ -7,6 +7,9 @@
         <field name="model">student.marks</field>
         <field name="arch" type="xml">
             <tree editable = "bottom">
+                <header>
+                    <button name="final_result" type="object" string="Result" class="btn-primary"/>
+                </header>
                 <field name="name"/>
                 <field name="roll_no"/>
                 <field name="student_class"/>
@@ -17,14 +20,13 @@
                 <field name="biology"/>
                 <field name="english"/>
                 <field name="total"/>
-                <field name="grand_total"/>
-                <field name="final_percentage"/>
+                <field name="grand_total" force_save="1"/>
+                <field name="final_percentage" force_save="1"/>
                 <field name="state"/>
 
             </tree>
         </field>
     </record>
-
     <record id="student_marks_form" model="ir.ui.view">
         <field name="name">student.marks.form</field>
         <field name="model">student.marks</field>
@@ -34,9 +36,10 @@
                 <header>
                     <button name="reset_marks" type="object" string="Reset" class="btn-primary"
                             confirm="Are you sure you want to reset the marks"/>
-                    <button name="final_result" type="object" string="Result" class="btn-primary"/>
+                    <button name="orm_method" type="object" string="ORM" class="btn-primary"/>
                     <button name="create_record" type="object" string="New Student" class="btn-primary"
                             confirm="Are you sure you want to create a new record"/>
+                    <button name="%(remark_display_action)d" type="action" string="Remark Wizard" class="btn-primary"/>
                     <field name="state" widget="statusbar" options="{'clickable' : '1'}"/>
                 </header>
                 <sheet>
@@ -53,7 +56,8 @@
                         <field name="total"/>
                         <field name="grand_total"/>
                         <field name="final_percentage"/>
-                        <field name="result" readonly="1"/>
+                        <field name="remark"/>
+<!--                        <field name="result" readonly="1"/>-->
 
                     </group>
                 </sheet>

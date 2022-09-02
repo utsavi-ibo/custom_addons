@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.module.category" id="module_category_school">
+        <field name="name">School Management</field>
+        <field name="description">School Category</field>
+        <field name="sequence">49</field>
+    </record>
+
+    <record model="res.groups" id="group_teacher">
+        <field name="name">Teacher</field>
+        <field name="category_id" ref="module_category_school"/>
+        <field name="implied_ids" eval="[(4, ref('group_student'))]"/>
+    </record>
+
+    <record model="res.groups" id="group_student">
+        <field name="name">Student</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+</odoo>

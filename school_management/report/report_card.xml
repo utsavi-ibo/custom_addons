@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+        <record id="student_report_card" model="ir.actions.report">
+            <field name="name">Marksheet</field>
+            <field name="model">student.marks</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">school_management.student_report_card_id1</field>
+            <field name="report_file">school_management.student_report_card_id1</field>
+            <field name="binding_model_id" ref="model_student_marks"/>
+            <field name="binding_type">report</field>
+
+        </record>
+    </data>
+
+    <template id="student_report_card_id1">
+        <t t-foreach="docs" t-as="i">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <table>
+                        <tr>
+                            <td width="70%"></td>
+                            <td width="30%">
+                                <h2>Marksheet</h2>
+                            </td>
+                        </tr>
+                    </table>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <table>
+
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Name:</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span t-field="i.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Roll No:</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span t-field="i.roll_no"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Semester:</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span t-field="i.semester"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br></br>
+                    <table class="table table-sm o_main_table" name="student_report_card">
+                        <thead>
+                            <tr>
+                                <th name="sub_name" class="text-left">
+                                    <span>Subject Name</span>
+                                </th>
+                                <th name="obt_marks" class="text-left">
+                                    <span>Obtained Marks</span>
+                                </th>
+                                <th name="tot_marks" class="text-left">
+                                    <span>Total_marks</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>
+                                        <strong>Physics</strong>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span t-field="i.physics"/>
+                                </td>
+                                <td>
+                                    <span t-field="i.each_total"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>
+                                        <strong>Chemistry</strong>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span t-field="i.chemistry"/>
+                                </td>
+                                <td>
+                                    <span t-field="i.each_total"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>
+                                        <strong>Maths</strong>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span t-field="i.maths"/>
+                                </td>
+                                <td>
+                                    <span t-field="i.each_total"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>
+                                        <strong>Biology</strong>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span t-field="i.biology"/>
+                                </td>
+                                <td>
+                                    <span t-field="i.each_total"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>
+                                        <strong>English</strong>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span t-field="i.english"/>
+                                </td>
+                                <td>
+                                    <span t-field="i.each_total"/>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <br></br>
+                    <table>
+                        <tr>
+                            <td width="30%">
+                                <span>
+                                    <strong>Total Marks:</strong>
+                                </span>
+                            </td>
+                            <td width="30%">
+                                <span t-field="i.grand_total"/>
+                            </td>
+                            <td width="30%">
+                                <span>
+                                    <strong>Percentage:</strong>
+                                </span>
+                            </td>
+                            <td width="30%">
+                                <span t-field="i.final_percentage"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br></br>
+                    <table>
+                        <tr>
+                            <td width="30%">
+                                <span>
+                                    <strong>Result:</strong>
+                                </span>
+                            </td>
+                            <td width="30%">
+                                <span t-field="i.state"/>
+                            </td>
+
+                        </tr>
+
+                    </table>
+            </div>
+        </t>
+    </t>
+    </template>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="sale_inherit"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <h1>Hello</h1>
+            </xpath>
+            <field name="partner_id" position="attributes">
+                <attribute name="domain">[("customer_rank", "&gt;", 0)]</attribute>
+            </field>
+
+
+        </field>
+    </record>
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </field>
+            <field name="mobile" position="attributes">
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="email" position="attributes">
+                <attribute name="attrs">{"invisible":[('mobile', '=', '9869009646')]}</attribute>
+            </field>
+            <field name="parent_id" position="attributes">
+                <attribute name="options">{"no_create":True}</attribute>
+            </field>
+
+        </field>
+    </record>
+
+</odoo>

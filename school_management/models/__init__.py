@@ -5,3 +5,5 @@ from . import teachers
 from . import activities
 from . import timetable
 from . import timeslot
+from . import sale_inherit
+from . import purchase

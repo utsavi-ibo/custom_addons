@@ -9,18 +9,26 @@
     'website': 'https://www.odooappliance.com',
     'images' : [],
     'depends' : [
-        'mail'
+        'mail',
+        'sale'
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'data/cron.xml',
+        'data/student_sequence.xml',
+        'wizard/remark_wizard.xml',
         'views/student.xml',
         'views/marksheet.xml',
+        'views/pass_students.xml',
         'views/student_class.xml',
         'views/teachers.xml',
         'views/activities.xml',
         'views/timetable.xml',
-        'views/timeslot.xml'],
+        'views/timeslot.xml',
+        'views/sale_inherit.xml',
+        'views/purchase.xml',
+        'report/report_card.xml'],
     'demo': [],
     'qweb': [],
     'installable': True,

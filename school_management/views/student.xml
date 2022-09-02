@@ -10,6 +10,7 @@
 
                 <field name="roll_no"/>
                 <field name="name"/>
+                <field name="reference"/>
                 <field name="gender"/>
                 <field name="age"/>
                 <field name="student_class_id"/>
@@ -26,12 +27,23 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="copy_details" type="object" string="Copy" class="btn-primary"
-                            confirm="Are you sure you want to reset the marks"/>
-
+                    <button name="test_year" type="object" string="Test" class="btn-primary"/>
                 </header>
+
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="button_purchase_order"
+                                string = "PO" type="object"
+                                icon="fa-bars">
+                            <div class="o_stat_info">
+                                <field name="purchase_count" class="o_stat_value"/>
+
+                            </div>
+                        </button>
+                    </div>
                     <group>
+                        <field name="reference"/>
+                        <field name="reference_1"/>
                         <field name="roll_no"/>
                         <field name="admission_date"/>
                         <field name="name"/>
@@ -52,6 +64,18 @@
                     <field name="message_ids"/>
                 </div>
             </form>
+        </field>
+    </record>
+    <record id="student_details_search" model="ir.ui.view">
+        <field name="name">student.details.search</field>
+        <field name="model">student.details</field>
+        <field name="arch" type="xml">
+            <search string="Students">
+                <field name="name"/>
+                <separator/>
+                <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
+                <filter string="Female" name="female" domain="[('gender', '=', 'female')]"/>
+            </search>
         </field>
     </record>
 
