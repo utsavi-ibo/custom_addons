@@ -12,7 +12,7 @@ class StudentDetails(models.Model):
     name = fields.Char(string='Name', required=True, translate=True)
     email = fields.Char(string='Email')
     reference = fields.Char(string='Reference ID', readonly=True)
-    reference_1 = fields.Char(string='Purchase Reference ID')
+    reference_1 = fields.Char(string='Purchase Reference ID', readonly=True)
     age = fields.Integer(string='Age')
     gender = fields.Selection([
         ('male', 'Male'),

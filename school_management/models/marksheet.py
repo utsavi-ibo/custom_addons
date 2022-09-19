@@ -122,10 +122,3 @@ class StudentMarks(models.Model):
         if (self.physics < 0 or self.chemistry < 0 or self.maths < 0 or self.biology < 0
                 or self.english < 0):
             raise ValidationError('Marks cannot be negative')
-
-
-
-
-
-
-

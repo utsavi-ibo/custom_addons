@@ -9,8 +9,33 @@
                 <field name="purchase_year"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="school_branch_id"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="student_purchase"/>
             </xpath>
+            <xpath expr="//notebook/page/field/tree/field[@name='product_qty']" position="after">
+                <field name="school_branch_id"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_update_receipt_date" model="ir.actions.server">
+        <field name="name">Update Receipt Date</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+<!--        <field name='groups_id' eval="[(4, ref('purchase.group_send_reminder'))]"/>-->
+<!--        <field name="binding_view_types">form</field>-->
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.update_receipt_date()
+<!--                filtered_records = records.filtered(lambda r: r.partner_id != records[0].partner_id)-->
+<!--                if filtered_records:-->
+<!--                    action_values = print("Hello")-->
+<!--                else:-->
+<!--                    action_values = env.ref('school_management.update_receipt_date_action').sudo().read()[0]-->
+<!--                    action_values.update({'context': env.context})-->
+<!--                action = action_values-->
         </field>
     </record>
 </odoo>

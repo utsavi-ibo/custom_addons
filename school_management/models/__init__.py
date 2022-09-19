@@ -7,3 +7,6 @@ from . import timetable
 from . import timeslot
 from . import sale_inherit
 from . import purchase
+from . import stock_picking
+from . import branch
+from . import account_move

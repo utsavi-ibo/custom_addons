@@ -49,8 +49,8 @@
     <menuitem id="school_teacher_root"
               name="Teacher"
               parent="school_root"
-              sequence="4"
-              groups = "school_management.group_teacher"/>
+              sequence="4"/>
+<!--              groups = "school_management.group_teacher"/>-->
 
     <menuitem id="school_teacher"
               name="Teacher"

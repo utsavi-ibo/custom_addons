@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="school_branch_tree" model="ir.ui.view">
+        <field name="name">school.branch.tree</field>
+        <field name="model">school.branch</field>
+        <field name="arch" type="xml">
+            <tree>
+<!--                <header>-->
+<!--                    <button name="final_result" type="object" string="Result" class="btn-primary"/>-->
+<!--                </header>-->
+<!--                <field name="name"/>-->
+                <field name="school_branch"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="school_branch_form" model="ir.ui.view">
+        <field name="name">school.branch.form</field>
+        <field name="model">school.branch</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="school_branch" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="school_branch"/>
+<!--                        <field name="result" readonly="1"/>-->
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_branch_action" model="ir.actions.act_window">
+        <field name="name">Branches</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.branch</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="school_branch_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Branch
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem id="school_branch"
+              name="Branch"
+              parent="school_class_root"
+              action="school_branch_action"
+              sequence="4"/>
+
+
+</odoo>

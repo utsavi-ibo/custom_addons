@@ -10,14 +10,19 @@
     'images' : [],
     'depends' : [
         'mail',
-        'sale'
+        'sale',
+        'purchase',
+        'purchase_stock',
+        'stock'
     ],
     'data': [
         'security/ir.model.access.csv',
-        'security/security.xml',
+        # 'security/security.xml',
         'data/cron.xml',
         'data/student_sequence.xml',
+        'data/branch_sequence.xml',
         'wizard/remark_wizard.xml',
+        'wizard/update_receipt_date_wizard.xml',
         'views/student.xml',
         'views/marksheet.xml',
         'views/pass_students.xml',
@@ -28,6 +33,9 @@
         'views/timeslot.xml',
         'views/sale_inherit.xml',
         'views/purchase.xml',
+        'views/branch.xml',
+        'views/account_move.xml',
+        'views/stock_picking.xml',
         'report/report_card.xml',
         'report/purchase_order_inherit.xml'],
     'demo': [],

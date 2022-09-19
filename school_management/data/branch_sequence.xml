@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_branch" model="ir.sequence">
+            <field name="name">Branch Sequence</field>
+            <field name="code">school.branch</field>
+<!--            <field name="prefix">ST</field>-->
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

@@ -6,6 +6,8 @@ access_school_teacher,access.school.teacher,model_school_teacher,,1,1,1,1
 access_student_activities,access.student.activities,model_student_activities,,1,1,1,1
 access_teacher_timetable,access.teacher.timetable,model_teacher_timetable,,1,1,1,1
 access_school_timeslot,access.school.timeslot,model_school_timeslot,,1,1,1,1
+access_school_branch,access.school.branch,model_school_branch,,1,1,1,1
 access_remark_display_wizard,access.remark.display.wizard,model_remark_display_wizard,,1,1,1,1
+access_update_receipt_date_wizard,access.update.receipt.date.wizard,model_update_receipt_date_wizard,,1,1,1,1
 
 
